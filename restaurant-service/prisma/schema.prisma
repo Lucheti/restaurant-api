@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Restaurant {
+  id     String   @id @default(uuid())
+  name   String
+  images String[]
+
+  country Country @relation(fields: [countryId], references: [id])
+  countryId String
+}
+
+model Country {
+  id             String   @id @default(uuid())
+  code           String   @unique
+  locales        String[]
+  allowedReviews Boolean  @default(false)
+
+  restaurant Restaurant[]
+}

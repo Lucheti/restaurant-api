@@ -1,0 +1,14 @@
+{
+  "server": {
+    "port": 3000
+  },
+  "api-url": {
+    "image": "http://image-service:3010/images"
+  },
+  "cache": {
+    "ttl": 5
+  },
+  "logging": {
+    "debug": false
+  }
+}
