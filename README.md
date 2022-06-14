@@ -1,3 +1,39 @@
+# Graphql requests
+
+```
+query {
+  restaurants(paginationInput: {page: 0, take: 10, filterRestaurantsWithoutImages: false}) {
+    restaurants {
+      id,
+      name,
+      country {
+        code,
+        locales
+      }
+      images
+      allowReview
+    }
+    pagination {
+      total
+      pageCount
+      currentPage
+      hasNext
+    }
+  }
+}
+```
+
+```
+mutation {
+  setAllowReview(code: "FR", allowed: false) {
+    id
+    code
+    locales
+    allowedReviews
+  }
+}
+```
+
 # TheFork backend test v1.1
 
 **Please don't communicate this test nor your implementation publicly**
